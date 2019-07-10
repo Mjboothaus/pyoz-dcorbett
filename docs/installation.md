@@ -10,14 +10,14 @@ Until then, we recommend that you install the ``pyoz`` dependencies using
  
 ```bash
 conda install scipy numba
-pip install git+https://github.com/ctk3b/pyoz.git#egg=pyoz
+pip install git+https://github.com/danielcorbett/pyoz.git#egg=pyoz
 ```
 
 but, in theory, you can also install them via pip:
 
 ```bash
 pip install scipy numba
-pip install git+https://github.com/ctk3b/pyoz.git#egg=pyoz
+pip install git+https://github.com/danielcorbett/pyoz.git#egg=pyoz
 ```
 #### Editable install
 
@@ -26,7 +26,7 @@ If you want to make modifications to the source code, you should install
 
 ```bash
 conda install scipy numba
-pip install -e git+https://github.com/ctk3b/pyoz.git#egg=pyoz
+pip install -e git+https://github.com/danielcorbett/pyoz.git#egg=pyoz
 cd src/pyoz
 ```
 
