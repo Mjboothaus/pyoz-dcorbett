@@ -137,21 +137,21 @@ _bhatia_thornton_combinations = OrderedDict([('number-number', _Snn),
 def pressure_virial(system):
     """Compute the pressure via the virial route
 
-    P = \rho * \beta - 2/3 * pi * int_0^inf [(r*dU/dr) * g(r) * r^2]dr
+    P = \rho * \beta - 2* int_0^inf [(r*dU/dr) * g(r) ]dr (is this a factor of two out?)
 
     """
     r, g_r, U_r, rho_ij, kT = system.r, system.g_r, system.U_r, system.rho_ij, system.kT
     dr = r[1] - r[0]
     dUdr = (np.diff(U_r) / dr)
 
-    integral = integrate(y=r[1:]**3 * g_r[:, :, 1:] * dUdr, x=r[1:])
+    integral = integrate(y=r[1:] * g_r[:, :, 1:] * dUdr, x=r[1:])
 
     rhos = np.diag(rho_ij)
     rho = np.sum(rhos)
 
     pressure = rho * kT
     for i, j in np.ndindex(rho_ij.shape):
-       pressure -= 2/3 * np.pi * rhos[i] * rhos[j] * integral[i, j]
+       pressure -= 2 * rhos[i] * rhos[j] * integral[i, j]
     return pressure
 
 
