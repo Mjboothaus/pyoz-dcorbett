@@ -115,7 +115,7 @@ class System(object):
         raise NotImplementedError
 
     def solve(self, rhos, closure_name='hnc', initial_e_r=None,
-              mix_param=0.8, tol=1e-9, status_updates=False,  max_iter=1000,
+              mix_param=0.8, tol=1e-9, status_updates=False,  max_iter=10000,
               **kwargs):
         """Solve the Ornstein-Zernike equation for this system.
 
